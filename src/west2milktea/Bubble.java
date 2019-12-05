@@ -1,6 +1,13 @@
 package west2milktea;
-public class Bubble extends Ingredient {
 
+import java.util.*;
+
+import west2milktea.Teashop.Shop;
+
+public class Bubble extends Ingredient implements Shop {
+	Calendar monment;
+	public void setBNums(ArrayList<Bubble> N) {
+	}
 	@Override
 	public void getIngredient() {
 		// TODO Auto-generated method stub
@@ -10,6 +17,35 @@ public class Bubble extends Ingredient {
 	public void setNumber(int number) {
 		// TODO Auto-generated method stub
 		remains=number;
+	}
+	public Bubble(){
+		monment=Calendar.getInstance();
+	}
+	@Override
+	public void Stock(Ingredient Ing) {
+		// TODO Auto-generated method stub
+		if(Ing instanceof Bubble)
+			Ing.setNumber(100);
+			BubbleList2.add((Bubble)Ing);
+		
+	}
+	@Override
+	public void Sold() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void add(Ingredient bu){
+		// TODO Auto-generated method stub
+		//判断一下加不加？？？
+		
+		
+		
+	}
+	@Override
+	public void delNumber(Ingredient Ing) {
+		// TODO Auto-generated method stub
+		remains--;
 	}
 	
 	
