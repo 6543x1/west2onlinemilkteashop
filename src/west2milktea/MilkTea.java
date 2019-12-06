@@ -33,9 +33,7 @@ void setIng(String Ingname) {
 		co.add();
 	}
 }
-public String toString(){
-    return name+" "+Ingname;
-}
+
 public void Stock(Ingredient Ing) {
 	Calendar cal=Calendar.getInstance();
 	// TODO Auto-generated method stub
@@ -55,6 +53,8 @@ public void add(Ingredient Ing) {
 	// TODO Auto-generated method stub
 	if(Ing instanceof Bubble) {
 		if(Ing.produceday+7<cal.get(Calendar.DAY_OF_MONTH)) {//判断过期暂时只判断这里......
+			Bubble remove=(Bubble) Ing;
+			remove.removeOutOfDate(Ing);//至于加回来的工作.....交给main吧
 			throw new SoldOutException();
 		}
 	Ing.delNumber(Ing);
@@ -63,7 +63,10 @@ public void add(Ingredient Ing) {
 	}
 	else {
 		if(Ing.produceday+7<cal.get(Calendar.DAY_OF_MONTH)) {
+			Coconut remove=(Coconut) Ing;
+			remove.removeOutOfDate(Ing);
 			throw new SoldOutException();
+			
 		}
 	Ing.delNumber(Ing);
 	Ingofmk.add("Coconut");
@@ -74,6 +77,9 @@ public void Sold() {
 	System.out.println("做好了，请取走");
 	// TODO Auto-generated method stub
 	
+}
+public String toString(){
+    return "名字和配料是"+name+" "+Ingname;
 }
 
 }

@@ -9,6 +9,6 @@ public class SoldOutException extends RuntimeException {
 		
 	}
 	public SoldOutException(Ingredient Ing) {
-		System.out.println("卖完了！！");
+		System.out.println("不好意思，卖完了！！");
 	}
 }

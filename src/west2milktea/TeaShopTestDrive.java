@@ -2,7 +2,7 @@ package west2milktea;
 import java.util.*;
 public class TeaShopTestDrive {
 	//main函数实在不知道要怎么写了
-	//一个很失败的main函数
+	//一个很失败的并且未完成的main函数
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int mktype;String name = null;

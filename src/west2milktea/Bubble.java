@@ -5,12 +5,8 @@ import java.util.*;
 import west2milktea.Teashop.Shop;
 
 public class Bubble extends Ingredient implements Shop {
-	Calendar monment;
-	@Override
-	public void getIngredient() {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	Calendar monment;//其实我也不知道为啥要写这个
 
 	public void setNumber(int number) {
 		// TODO Auto-generated method stub
@@ -21,6 +17,12 @@ public class Bubble extends Ingredient implements Shop {
 	}
 	public Bubble(){
 		monment=Calendar.getInstance();
+		expdate=7;
+		name="Bubble";
+	}
+	public void setTime(Calendar A) {
+		monment=A;
+		produceday=monment.get(Calendar.DAY_OF_MONTH);//测试过期的时候可以用吧
 	}
 	@Override
 	public void Stock(Ingredient Ing) {
@@ -28,6 +30,7 @@ public class Bubble extends Ingredient implements Shop {
 		if(Ing instanceof Bubble)
 			Ing.setNumber(100);
 			BubbleList2.add((Bubble)Ing);
+			Ing.produceday=monment.get(Calendar.DAY_OF_MONTH);
 		
 	}
 	@Override
@@ -51,6 +54,16 @@ public class Bubble extends Ingredient implements Shop {
 			throw new SoldOutException();//卖完进货的工作恐怕只能？？交给主函数了
 		}
 	}
-	
+
+	@Override
+	public void removeOutOfDate(Ingredient Ofd) {
+		// TODO Auto-generated method stub
+		BubbleList2.remove((Bubble)Ofd);
+	}
+	 @Override
+	 public String toString() {
+	        return super.toString();
+	    }
+
 	
 }
