@@ -12,7 +12,7 @@ public class Bubble extends Ingredient implements Shop {
 		// TODO Auto-generated method stub
 		remains=number;
 	}
-	public int number() {
+	public int getnumber() {
 		return remains;
 	}
 	public Bubble(){

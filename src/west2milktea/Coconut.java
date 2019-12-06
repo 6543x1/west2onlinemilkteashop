@@ -15,7 +15,7 @@ public class Coconut extends Ingredient implements Shop{
 	public void setNumber(int number) {
 		remains=number;
 	}
-	public int number() {
+	public int getnumber() {
 		return remains;
 	}
 	@Override
