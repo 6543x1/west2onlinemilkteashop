@@ -1,17 +1,16 @@
 package west2milktea;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 
-import west2milktea.Teashop.Shop;
 
-public class MilkTea implements Shop{
+public class MilkTea{
 		String Ingname;
 		private String name="Bubble";//临时测试
 		public MilkTea(String name) {//好吧应该是奶茶类型？而不是名字？？
 			this.name=name;
 		}
-		ArrayList<Ingredient> Ingofmk=new ArrayList<>();
+		ArrayList<String> Ingofmk=new ArrayList<>();
 		
 String getname() {
 	return name;
@@ -34,11 +33,9 @@ void setIng(String Ingname) {
 		co.add();
 	}
 }
-@Override
 public String toString(){
     return name+" "+Ingname;
 }
-@Override
 public void Stock(Ingredient Ing) {
 	Calendar cal=Calendar.getInstance();
 	// TODO Auto-generated method stub
@@ -53,7 +50,6 @@ public void Stock(Ingredient Ing) {
 		CC.producedate=cal.getTime();
 	}
 }
-@Override
 public void add(Ingredient Ing) {
 	Calendar cal=Calendar.getInstance();
 	// TODO Auto-generated method stub
@@ -62,17 +58,18 @@ public void add(Ingredient Ing) {
 			throw new SoldOutException();
 		}
 	Ing.delNumber(Ing);
-	Ingofmk.add((Bubble)Ing);
+	Ingofmk.add("Bubble");
+	name="Bubble MilkTea";
 	}
 	else {
 		if(Ing.produceday+7<cal.get(Calendar.DAY_OF_MONTH)) {
 			throw new SoldOutException();
 		}
 	Ing.delNumber(Ing);
-	Ingofmk.add((Coconut)Ing);
+	Ingofmk.add("Coconut");
+	name="Coconut MilkTea";
 	}
 }
-@Override
 public void Sold() {
 	System.out.println("做好了，请取走");
 	// TODO Auto-generated method stub

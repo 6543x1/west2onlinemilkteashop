@@ -24,7 +24,9 @@ public class Coconut extends Ingredient implements Shop{
 	@Override
 	public void Stock(Ingredient Ing) {
 		// TODO Auto-generated method stub
-		
+		if(Ing instanceof Coconut)
+			Ing.setNumber(100);
+			CoconutList2.add((Coconut)Ing);
 	}
 	
 	@Override
