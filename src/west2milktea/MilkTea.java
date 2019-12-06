@@ -17,7 +17,7 @@ String getname() {
 	return name;
 }
 String getIng() {
-	return Ingname;
+	return Ingname;//最后输出名字时用这个吧.....
 }
 void setBubble(){
 	} 
@@ -58,21 +58,23 @@ public void add(Ingredient Ing) {
 	Calendar cal=Calendar.getInstance();
 	// TODO Auto-generated method stub
 	if(Ing instanceof Bubble) {
-		if(Ing.produceday+7<cal.get(Calendar.DAY_OF_MONTH)) {
+		if(Ing.produceday+7<cal.get(Calendar.DAY_OF_MONTH)) {//判断过期暂时只判断这里......
 			throw new SoldOutException();
 		}
 	Ing.delNumber(Ing);
+	Ingofmk.add((Bubble)Ing);
 	}
 	else {
 		if(Ing.produceday+7<cal.get(Calendar.DAY_OF_MONTH)) {
 			throw new SoldOutException();
 		}
 	Ing.delNumber(Ing);
+	Ingofmk.add((Coconut)Ing);
 	}
 }
 @Override
 public void Sold() {
-	System.out.println("做好了");
+	System.out.println("做好了，请取走");
 	// TODO Auto-generated method stub
 	
 }

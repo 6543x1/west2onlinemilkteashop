@@ -10,8 +10,6 @@ public class Coconut extends Ingredient implements Shop{
 	now=Calendar.getInstance();
 	name="Coconut";
 	}
-	public void setCnums(ArrayList<Coconut> N) {
-	}
 	@Override
 	public void getIngredient() {
 		// TODO Auto-generated method stub
@@ -19,6 +17,9 @@ public class Coconut extends Ingredient implements Shop{
 	}
 	public void setNumber(int number) {
 		remains=number;
+	}
+	public int number() {
+		return remains;
 	}
 	@Override
 	public void Stock(Ingredient Ing) {
@@ -46,9 +47,10 @@ public class Coconut extends Ingredient implements Shop{
 	public void delNumber(Ingredient Ing) {
 		// TODO Auto-generated method stub
 		remains--;
-		if(remains==0) {
-			//Ing.Stock(Ing);
-		}
+			if(remains==-1) {
+				throw new SoldOutException();
+			}
+		
 	}
 	
 	

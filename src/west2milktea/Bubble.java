@@ -6,8 +6,6 @@ import west2milktea.Teashop.Shop;
 
 public class Bubble extends Ingredient implements Shop {
 	Calendar monment;
-	public void setBNums(ArrayList<Bubble> N) {
-	}
 	@Override
 	public void getIngredient() {
 		// TODO Auto-generated method stub
@@ -17,6 +15,9 @@ public class Bubble extends Ingredient implements Shop {
 	public void setNumber(int number) {
 		// TODO Auto-generated method stub
 		remains=number;
+	}
+	public int number() {
+		return remains;
 	}
 	public Bubble(){
 		monment=Calendar.getInstance();
@@ -46,6 +47,9 @@ public class Bubble extends Ingredient implements Shop {
 	public void delNumber(Ingredient Ing) {
 		// TODO Auto-generated method stub
 		remains--;
+		if(remains==-1) {
+			throw new SoldOutException();//卖完进货的工作恐怕只能？？交给主函数了
+		}
 	}
 	
 	
